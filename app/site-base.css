@@ -1,0 +1,87 @@
+/**
+ * Temel düzen yedeği: ana CSS yüklenemezse bile okunabilir sayfa.
+ * Tailwind yüklendiğinde bu kuralların çoğu utility sınıflarıyla üzerine yazılır.
+ */
+html {
+  box-sizing: border-box;
+}
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-sans), system-ui, sans-serif;
+  color: #0d1514;
+  background-color: #ffffff;
+  line-height: 1.55;
+}
+
+[data-hexa-header] {
+  border-bottom: 2px solid #9dc2b6;
+  background: #ffffff;
+}
+
+[data-hexa-header-inner] {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  max-width: 72rem;
+  margin: 0 auto;
+  padding: 0.5rem 1rem;
+  min-height: 3.5rem;
+}
+
+[data-hexa-nav-desktop] > ul {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.35rem 1rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+@media (max-width: 767px) {
+  [data-hexa-nav-desktop] {
+    display: none !important;
+  }
+}
+
+[data-hexa-nav-desktop] > ul > li > a {
+  color: #0f7a72;
+  text-decoration: none;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+[data-hexa-nav-desktop] > ul > li > a:hover {
+  text-decoration: underline;
+}
+
+#icerik {
+  flex: 1 1 auto;
+  width: 100%;
+  min-height: 40vh;
+}
+
+[data-hexa-root] {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+[data-hexa-footer] {
+  border-top: 2px solid #9dc2b6;
+  background: #f3f8f6;
+  padding: 2rem 1rem;
+}
+
+[data-hexa-footer-inner] {
+  max-width: 72rem;
+  margin: 0 auto;
+}

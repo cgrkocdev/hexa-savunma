@@ -1,101 +1,120 @@
+import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
+import { Section } from "@/components/ui/Section";
+import { SITE_IMAGES } from "@/lib/site-media";
+import { cn } from "@/utils/cn";
+import { HeroSection } from "@/sections/HeroSection";
 
-export default function Home() {
+export const metadata: Metadata = {
+  title: "Ana Sayfa",
+  description:
+    "Hexa Teknoloji & Savunma — mühendislik, imalat ve savunma sanayi çözümleri. Türkiye merkezli hassas üretim.",
+};
+
+const exploreCards = [
+  {
+    href: "/hakkimizda",
+    label: "Hakkımızda",
+    description: "Kuruluş, vizyon ve mühendislik odaklı yaklaşım.",
+    image: SITE_IMAGES.exploreAbout,
+    alt: "Ekip toplantısı ve kurumsal vizyon",
+  },
+  {
+    href: "/kabiliyetler",
+    label: "Kabiliyetler",
+    description: "CNC imalat, prototip ve savunma programları.",
+    image: SITE_IMAGES.projectCnc,
+    alt: "CNC talaşlı imalat",
+  },
+  {
+    href: "/makine-parki",
+    label: "Makine Parkı",
+    description: "5 tezgâh — işleme merkezi ve torna kapasitesi.",
+    image: SITE_IMAGES.machineParkExplore,
+    alt: "Makine parkı üretim hattı",
+  },
+  {
+    href: "/projeler",
+    label: "Projeler",
+    description: "Temsili program özetleri ve referans alanları.",
+    image: SITE_IMAGES.exploreProjects,
+    alt: "Savunma ve imalat programları — mühendislik atölyesi",
+  },
+  {
+    href: "/neden-hexa",
+    label: "Neden Hexa?",
+    description: "Hesap verebilirlik ve uyumluluk odağı.",
+    image: SITE_IMAGES.exploreWhy,
+    alt: "Kalite, uyumluluk ve süreç yönetimi",
+  },
+  {
+    href: "/iletisim",
+    label: "İletişim",
+    description: "Teklif ve iş birliği için doğrudan kanal.",
+    image: SITE_IMAGES.exploreContact,
+    alt: "İş birliği ve teklif görüşmesi",
+  },
+] as const;
+
+export default function HomePage() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+    <>
+      <HeroSection />
+      <Section bordered padding="lg" className="bg-surface">
+        <div className="max-w-3xl">
+          <p className="font-mono text-[11px] uppercase tracking-[0.38em] text-steel-300 sm:text-xs">
+            Keşfet
+          </p>
+          <h2 className="font-display mt-3 text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
+            Kurumsal bilgi ve hizmetler
+          </h2>
+          <p className="mt-4 text-pretty text-sm leading-relaxed text-muted sm:text-base">
+            Her konu ayrı sayfada; teknik içerik, makine parkı ve iletişim için
+            aşağıdaki kartları kullanın.
+          </p>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+
+        <ul className="mt-10 grid list-none gap-4 sm:mt-12 sm:grid-cols-2 sm:gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {exploreCards.map((item) => (
+            <li key={item.href}>
+              <Link
+                href={item.href}
+                className={cn(
+                  "group flex h-full flex-col overflow-hidden rounded-[var(--radius-lg)] border border-border bg-surface-elevated",
+                  "shadow-[0_8px_28px_rgba(13,21,20,0.06)] transition-[border-color,box-shadow,transform] duration-300 ease-out",
+                  "md:hover:-translate-y-0.5 md:hover:border-accent/35 md:hover:shadow-[0_14px_40px_rgba(15,122,114,0.12)] active:scale-[0.99]",
+                )}
+              >
+                <div className="relative aspect-[16/10] w-full overflow-hidden">
+                  <Image
+                    src={item.image}
+                    alt={item.alt}
+                    fill
+                    className="object-cover transition duration-500 group-hover:scale-[1.03]"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
+                  />
+                  <div
+                    className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"
+                    aria-hidden
+                  />
+                </div>
+                <div className="flex flex-1 flex-col p-4 sm:p-5">
+                  <h3 className="font-display text-lg font-bold tracking-tight text-foreground">
+                    {item.label}
+                  </h3>
+                  <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">
+                    {item.description}
+                  </p>
+                  <span className="mt-4 text-sm font-medium text-accent">
+                    Sayfaya git →
+                  </span>
+                </div>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </Section>
+    </>
   );
 }
