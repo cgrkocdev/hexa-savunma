@@ -24,8 +24,8 @@ const exploreCards = [
     href: "/kabiliyetler",
     label: "Kabiliyetler",
     description: "CNC imalat, prototip ve savunma programları.",
-    image: SITE_IMAGES.projectCnc,
-    alt: "CNC talaşlı imalat",
+    image: SITE_IMAGES.exploreCapabilities,
+    alt: "CNC işleme merkezi — hassas metal frezeleme",
   },
   {
     href: "/makine-parki",

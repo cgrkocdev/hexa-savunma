@@ -13,6 +13,8 @@ export const SITE_IMAGES = {
   /** Ana sayfa keşfet kartı — makine parkı banner’dan farklı görsel */
   machineParkExplore: "/images/explore-machine-park.jpg",
   exploreAbout: "/images/explore-about-v2.jpg",
+  /** Ana sayfa Kabiliyetler kartı — CNC freze */
+  exploreCapabilities: "/images/explore-capabilities.jpg",
   exploreProjects: "/images/explore-projects-v2.jpg",
   exploreWhy: "/images/explore-why-v2.jpg",
   exploreContact: "/images/explore-contact-v2.jpg",
@@ -42,6 +44,7 @@ export const ALL_LOCAL_MEDIA_PATHS = [
   SITE_IMAGES.machineParkExplore,
   SITE_IMAGES.exploreAbout,
   "/images/explore-about.jpg",
+  SITE_IMAGES.exploreCapabilities,
   SITE_IMAGES.exploreProjects,
   "/images/explore-projects.jpg",
   SITE_IMAGES.exploreWhy,
